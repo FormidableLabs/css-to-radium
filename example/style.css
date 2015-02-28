@@ -1,0 +1,27 @@
+.btn {
+  background: #ccc;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+
+  flex: 0;
+
+  line-height: 2.4;
+}
+
+.btn-primary {
+  background: orange;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (min-width: 300px) {
+  body {
+    background: red;
+  }
+}

@@ -43,3 +43,25 @@ module.exports = {
   }
 }
 ```
+
+## Options
+
+### quote
+
+`--quote=[type]`
+
+Type of quote used in generated JS. Defaults to `single`.
+
+```
+css-to-radium style.css style.js --quote=double
+```
+
+### indentSize
+
+`--indentSize=[int]`
+
+Number of space characters to use for indents in generated JS. If this flag is not included, defaults to a single tab character (`\t`).
+
+```
+css-to-radium style.css style.js --indentSize=2
+```

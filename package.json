@@ -20,6 +20,7 @@
   "dependencies": {
     "camelcase": "^1.0.2",
     "lodash": "^3.3.1",
+    "minimist": "^1.1.0",
     "postcss": "^4.0.6",
     "stringify-object": "^1.0.0"
   },

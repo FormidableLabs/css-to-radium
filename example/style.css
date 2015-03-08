@@ -31,3 +31,25 @@
 .btn {
   background: blue;
 }
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background: green;
+  }
+
+  .btn {
+    padding: 24;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background: red;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .foobar {
+    color: orange;
+  }
+}

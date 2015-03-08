@@ -40,38 +40,39 @@ var convertDecl = function (decl) {
 };
 
 var convertRule = function (rule) {
-  return {
-    selector: rule.selector,
-    declarations: _.transform(rule.nodes, function (convertedDecls, decl) {
-      var convertedDecl = convertDecl(decl);
+  var returnObj = {};
 
-      convertedDecls[convertedDecl.property] = convertedDecl.value;
-    }, {})
-  };
+  returnObj[rule.selector] = _.transform(rule.nodes, function (convertedDecls, decl) {
+    var convertedDecl = convertDecl(decl);
+
+    convertedDecls[convertedDecl.property] = convertedDecl.value;
+  }, {})
+
+  return returnObj;
+};
+
+var convertMedia = function (media) {
+  var returnObj = { mediaQueries: {} };
+  returnObj.mediaQueries[media.params] = {};
+
+  _.forEach(media.nodes, function (node) {
+    if (node.type !== 'rule') {
+      return;
+    }
+
+    _.merge(returnObj.mediaQueries[media.params], convertRule(node));
+  });
+
+  return returnObj;
 };
 
 var convertCss = function (sourceCss, cb) {
-  var duplicates = {};
-
-  var result = _.chain(postcss.parse(sourceCss).nodes)
-    .filter({ type: 'rule' })
-    .transform(function (convertedObj, rule) {
-      var convertedRule = convertRule(rule);
-      var selector = convertedRule.selector;
-
-      if (convertedObj[selector]) {
-        if (duplicates[selector] >= 0) {
-          duplicates[selector]++;
-        } else {
-          duplicates[selector] = 0;
-        }
-
-        selector = selector + " [" + duplicates[selector] + "]";
-      }
-
-      convertedObj[selector] = convertedRule.declarations;
-    }, {})
-    .value();
+  var source = postcss.parse(sourceCss).nodes;
+  
+  var result = _.transform(source, function (convertedObj, node) {
+    node.type === 'rule' && _.merge(convertedObj, convertRule(node));
+    node.name === 'media' && _.merge(convertedObj, convertMedia(node));
+  }, {});
 
   cb(result);
 };

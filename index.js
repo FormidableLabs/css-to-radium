@@ -51,12 +51,25 @@ var convertRule = function (rule) {
 };
 
 var convertCss = function (sourceCss, cb) {
+  var duplicates = {};
+
   var result = _.chain(postcss.parse(sourceCss).nodes)
     .filter({ type: 'rule' })
     .transform(function (convertedObj, rule) {
       var convertedRule = convertRule(rule);
+      var selector = convertedRule.selector;
 
-      convertedObj[convertedRule.selector] = convertedRule.declarations;
+      if (convertedObj[selector]) {
+        if (duplicates[selector] >= 0) {
+          duplicates[selector]++;
+        } else {
+          duplicates[selector] = 0;
+        }
+
+        selector = selector + " [" + duplicates[selector] + "]";
+      }
+
+      convertedObj[selector] = convertedRule.declarations;
     }, {})
     .value();
 

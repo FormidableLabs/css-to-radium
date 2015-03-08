@@ -19,3 +19,15 @@
   color: #fff;
   -webkit-font-smoothing: antialiased;
 }
+
+.btn {
+  margin: 12px;
+}
+
+.btn {
+  color: red;
+}
+
+.btn {
+  background: blue;
+}

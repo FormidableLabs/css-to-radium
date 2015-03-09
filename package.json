@@ -22,7 +22,8 @@
     "lodash": "^3.3.1",
     "minimist": "^1.1.0",
     "postcss": "^4.0.6",
-    "stringify-object": "^1.0.0"
+    "stringify-object": "^1.0.0",
+    "through2": "^0.6.3"
   },
   "bin": {
     "css-to-radium": "bin/cli.js"

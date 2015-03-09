@@ -22,3 +22,4 @@ script:
   - cat example/style.css | bin/cli.js example/style.js
   - bin/cli.js --input example/style.css > example/style.js
   - bin/cli.js --input example/style.css example/style.js
+  - bin/cli.js --input example/style.css --input example/more.css

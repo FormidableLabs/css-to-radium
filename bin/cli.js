@@ -15,6 +15,8 @@ var cliArgs = minimist(process.argv.slice(2));
 
 var inputs = cliArgs.input;
 
+inputs = Array.isArray(inputs) ? inputs : [ inputs ];
+
 // Index 0 (file path) else stdin output arguments in remainder.
 if (cliArgs._.length > 1) {
   throw new Error('Must have 0 or 1 output paths specified');

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/FormidableLabs/css-to-radium",
   "dependencies": {
     "camelcase": "^1.0.2",
+    "kat": "^0.3.0",
     "lodash": "^3.3.1",
     "minimist": "^1.1.0",
     "postcss": "^4.0.6",

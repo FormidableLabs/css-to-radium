@@ -29,20 +29,10 @@ var output = cliArgs._[0] || null; // Remaining argument.
 // ----------------------------------------------------------------------------
 // Helpers
 // ----------------------------------------------------------------------------
-var getTabString = function (tabWidth) {
-  var result = '';
-
-  for (var i = 0; i < tabWidth; i++) {
-    result += ' ';
-  }
-
-  return result;
-};
-
 var stringifyResult = function (data) {
   return stringifyObject(data, {
-    singleQuotes: cliArgs.quote === 'double' ? false : true,
-    indent: cliArgs.indentSize ? getTabString(cliArgs.indentSize) : '\t'
+    singleQuotes: cliArgs.quote !== 'double',
+    indent: cliArgs.indentSize ? (new Array(cliArgs.indentSize)).join(' ') : '\t'
   });
 };
 
@@ -66,11 +56,10 @@ var convertStream = through2(function (chunk, enc, callback) {
 process.stdin.setEncoding('utf8');
 
 // Input: Files or stdin.
-var inputStream = inputs ?
-  new Kat() :
-  process.stdin;
+var inputStream = process.stdin;
 
 if (inputs) {
+  inputStream = new Kat();
   inputs.forEach(function (input) {
     inputStream.add(input);
   });

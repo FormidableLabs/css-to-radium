@@ -1,0 +1,55 @@
+.btn {
+  background: #ccc;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+
+  flex: 0;
+
+  line-height: 2.4;
+}
+
+.btn-primary {
+  background: orange;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn {
+  margin: 12px;
+}
+
+.btn {
+  color: red;
+}
+
+.btn {
+  background: blue;
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background: green;
+  }
+
+  .btn {
+    padding: 24;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background: red;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .foobar {
+    color: orange;
+  }
+}

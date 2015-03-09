@@ -1,0 +1,32 @@
+{
+  "name": "css-to-radium",
+  "version": "1.0.0",
+  "description": "Radium migration CLI, converts CSS to Radium-compatible JS objects",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FormidableLabs/css-to-radium.git"
+  },
+  "keywords": [
+    "radium",
+    "react",
+    "css"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/css-to-radium/issues"
+  },
+  "homepage": "https://github.com/FormidableLabs/css-to-radium",
+  "dependencies": {
+    "camelcase": "^1.0.2",
+    "kat": "^0.3.0",
+    "lodash": "^3.3.1",
+    "minimist": "^1.1.0",
+    "postcss": "^4.0.6",
+    "stringify-object": "^1.0.0",
+    "through2": "^0.6.3"
+  },
+  "bin": {
+    "css-to-radium": "bin/cli.js"
+  }
+}

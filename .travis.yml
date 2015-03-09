@@ -1,0 +1,25 @@
+language: node_js
+
+node_js:
+  - 0.10
+  - 0.12
+
+# Use container-based Travis infrastructure.
+# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+branches:
+  only:
+    - master
+
+script:
+  # Build environment.
+  - node --version
+  - npm --version
+  # Simple execution tests.
+  - bin/cli.js < example/style.css > example/style.js
+  - cat example/style.css | bin/cli.js > example/style.js
+  - cat example/style.css | bin/cli.js example/style.js
+  - bin/cli.js --input example/style.css > example/style.js
+  - bin/cli.js --input example/style.css example/style.js
+  - bin/cli.js --input example/style.css --input example/more.css example/style.js

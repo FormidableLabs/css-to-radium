@@ -46,5 +46,6 @@ var writeJS = function (convertedData) {
 fs.readFile(sourceCss, 'utf-8', function (err, data) {
   if (err) throw err;
 
-  convertCss(data, writeJS);
+  var converted = convertCss(data);
+  writeJS(converted);
 });

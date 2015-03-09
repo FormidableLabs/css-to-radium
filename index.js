@@ -68,13 +68,11 @@ var convertMedia = function (media) {
 
 var convertCss = function (sourceCss, cb) {
   var source = postcss.parse(sourceCss).nodes;
-  
-  var result = _.transform(source, function (convertedObj, node) {
+
+  return _.transform(source, function (convertedObj, node) {
     node.type === 'rule' && _.merge(convertedObj, convertRule(node));
     node.name === 'media' && _.merge(convertedObj, convertMedia(node));
   }, {});
-
-  cb(result);
 };
 
 module.exports = convertCss;

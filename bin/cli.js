@@ -2,7 +2,6 @@
 
 var fs = require('fs');
 var through2 = require('through2');
-
 var minimist = require('minimist');
 var stringifyObject = require('stringify-object');
 
@@ -25,6 +24,7 @@ var inputs = inputs[0] || null;
 if (cliArgs._.length > 3) {
   throw new Error('Must have 0 or 1 output paths specified');
 }
+
 var output = cliArgs._[2] || null; // Remaining argument.
 
 // ----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ var convertStream = through2(function (chunk, enc, callback) {
 }, function (callback) {
   var data = _buffer.join('');
   var cssObj = convertCss(data);
-  var converted = new Buffer(JSON.stringify(cssObj));
+  var converted = new Buffer(stringifyResult(cssObj));
   this.push(converted);
   callback();
 });

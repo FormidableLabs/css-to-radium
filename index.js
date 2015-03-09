@@ -66,7 +66,7 @@ var convertMedia = function (media) {
   return returnObj;
 };
 
-var convertCss = function (sourceCss, cb) {
+var convertCss = function (sourceCss) {
   var source = postcss.parse(sourceCss).nodes;
 
   return _.transform(source, function (convertedObj, node) {

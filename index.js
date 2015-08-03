@@ -43,9 +43,11 @@ var convertRule = function (rule) {
   var returnObj = {};
 
   returnObj[rule.selector] = _.transform(rule.nodes, function (convertedDecls, decl) {
-    var convertedDecl = convertDecl(decl);
+    if (decl.type === 'decl') {
+      var convertedDecl = convertDecl(decl);
 
-    convertedDecls[convertedDecl.property] = convertedDecl.value;
+      convertedDecls[convertedDecl.property] = convertedDecl.value;
+    }
   }, {})
 
   return returnObj;

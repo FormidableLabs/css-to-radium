@@ -94,3 +94,7 @@ Number of space characters to use for indents in generated JS. If this flag is n
 ```
 css-to-radium style.css style.js --indentSize=2
 ```
+
+## Webpack
+
+Using Webpack? Check out [radium-loader](https://github.com/dminkovsky/radium-loader).

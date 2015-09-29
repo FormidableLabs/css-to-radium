@@ -2,6 +2,10 @@ var _ = require('lodash');
 var postcss = require('postcss');
 var camelCase = require('camelcase');
 
+var sanitizeSelector = function (selector) {
+  return selector.replace(/\n/gi, ' ');
+};
+
 var convertValue = function (value) {
   var result = value;
   var resultNumber = Number(result);
@@ -41,8 +45,9 @@ var convertDecl = function (decl) {
 
 var convertRule = function (rule) {
   var returnObj = {};
+  var selector = sanitizeSelector(rule.selector);
 
-  returnObj[rule.selector] = _.transform(rule.nodes, function (convertedDecls, decl) {
+  returnObj[selector] = _.transform(rule.nodes, function (convertedDecls, decl) {
     if (decl.type === 'decl') {
       var convertedDecl = convertDecl(decl);
 

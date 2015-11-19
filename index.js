@@ -33,7 +33,7 @@ var convertProp = function (prop) {
     result = result.replace('o', 'O');
   }
 
-  return camelCase(result);
+  return result;
 };
 
 var convertDecl = function (decl) {

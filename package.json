@@ -1,6 +1,6 @@
 {
   "name": "css-to-radium",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Radium migration CLI, converts CSS to Radium-compatible JS objects",
   "main": "index.js",
   "repository": {

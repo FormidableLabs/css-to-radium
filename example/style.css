@@ -24,9 +24,18 @@
   margin: 12px;
 }
 
+.btn:hover {
+  margin: 12px;
+}
+
 .btn {
   color: red;
 }
+
+.btn:hover {
+  color: #000;
+}
+
 
 .btn {
   background: blue;

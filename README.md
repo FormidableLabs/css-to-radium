@@ -1,10 +1,9 @@
+[![Maintenance Status][maintenance-image]](#maintenance-status)
+
+
 # CSS to Radium
 
 A CLI utility to convert the contents of a CSS file to a Radium-compatible JS object.
-
-### Maintenance Status: Archived
-
-This project is no longer maintained by Formidable. We are no longer responding to issues or pull requests unless they relate to security concerns. We encourage interested developers to fork this project and make it their own!
 
 ## Installation
 
@@ -102,3 +101,9 @@ css-to-radium style.css style.js --indentSize=2
 ## Webpack
 
 Using Webpack? Check out [radium-loader](https://github.com/dminkovsky/radium-loader).
+
+## Maintenance Status
+
+**Archived:** This project is no longer maintained by Formidable. We are no longer responding to issues or pull requests unless they relate to security concerns. We encourage interested developers to fork this project and make it their own!
+
+[maintenance-image]: https://img.shields.io/badge/maintenance-archived-red.svg

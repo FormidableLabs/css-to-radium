@@ -47,13 +47,28 @@ var convertRule = function (rule) {
   var returnObj = {};
   var selector = sanitizeSelector(rule.selector);
 
-  returnObj[selector] = _.transform(rule.nodes, function (convertedDecls, decl) {
+  var rules = _.transform(rule.nodes, function (convertedDecls, decl) {
     if (decl.type === 'decl') {
       var convertedDecl = convertDecl(decl);
 
       convertedDecls[convertedDecl.property] = convertedDecl.value;
     }
   }, {})
+
+  // Try to parse selector
+  pseudoClass = selector.split(':');
+
+  // Check pseudo
+  if (pseudoClass.length > 1) {
+    selector = pseudoClass[0];
+
+    var tmp = {};
+
+    tmp[':' + pseudoClass[1]] = rules;
+    rules = tmp;
+  }
+
+  returnObj[selector] = rules;
 
   return returnObj;
 };
